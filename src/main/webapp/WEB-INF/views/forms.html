@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header.html :: headerfiles">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="pf-c-page">
+<header th:replace="fragments/header.html :: header"></header>
+<main class="pf-c-page__main">
+    <section class="pf-c-page__main-section">
+        <div class="pf-c-page__main-body">
+            <div class="pf-c-content">
+                <h2>Forms</h2>
+                <p>Show how we can process form without reloading the page</p>
+            </div>
+        </div>
+    </section>
+
+    <turbo-frame id="bulletin-list">
+        <section class="pf-c-page__main-section pf-m-overflow-scroll">
+            <div class="pf-l-gallery pf-m-gutter">
+                <div class="pf-l-gallery__item" th:each="bulletin : ${bulletins.bulletins}">
+                    <div class="pf-c-card">
+                        <div class="pf-c-card__body" th:text="${bulletin}"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </turbo-frame>
+
+    <section class="pf-c-page__main-section">
+        <div class="pf-c-page__main-body">
+            <form method="post" th:action="${mvc.basePath} + '/forms'"  data-turbo-frame="bulletin-list"
+                  class="pf-c-form">
+                <div class="pf-c-form__group">
+                    <div class="pf-c-form__group-label">
+                        <label class="pf-c-form__label" for="form-bulletin">
+                            <span class="pf-c-form__label-text">New Bulletin:</span>
+                            <span class="pf-c-form__label-required" aria-hidden="true">&#42;</span>
+                        </label>
+                    </div>
+                    <div class="pf-c-form__group-control">
+                        <input class="pf-c-form-control" type="text" name="bulletin" id="form-bulletin">
+                    </div>
+                </div>
+
+                <div class="pf-c-form__group pf-m-action">
+                    <div class="pf-c-form__actions">
+                        <input class="pf-c-button pf-m-primary" type="submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>

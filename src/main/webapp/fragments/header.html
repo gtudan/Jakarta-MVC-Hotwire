@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module" th:src="@{/webjars/hotwired__turbo/7.0.0-beta.5/dist/turbo.es2017-esm.js}"></script>
+    <link rel="stylesheet" th:href="@{/webjars/patternfly__patternfly/4.50.2/patternfly.css}">
+    <title>MVC Turbo</title>
+</head>
+<body class="pf-c-page">
+<header class="pf-c-page__header" th:fragment="header">
+    <div class="pf-c-page__header-brand">
+        <a th:href="${mvc.basePath}">MVC Turbo</a>
+    </div>
+    <div class="pf-c-page__header-nav">
+        <nav class="pf-c-nav pf-m-horizontal">
+            <ul class="pf-c-nav__list">
+                <li class="pf-c-nav__item">
+                    <a th:href="${mvc.basePath} + '/forms'" class="pf-c-nav__link">Forms</a>
+                </li>
+                <li class="pf-c-nav__item">
+                    <a th:href="${mvc.basePath} + '/lazy'" class="pf-c-nav__link">Lazy-Loading</a>
+                </li>
+                <li class="pf-c-nav__item">
+                    <a th:href="${mvc.basePath} + '/streams'" class="pf-c-nav__link">Streaming</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+</body>
+</html>
